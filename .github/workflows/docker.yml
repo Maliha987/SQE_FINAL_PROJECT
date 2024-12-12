@@ -52,5 +52,5 @@ jobs:
     - name: Push Docker image to GHCR
       if: github.event_name == 'push'
       run: |
-        docker tag task-management-app ghcr.io/Maliha987/task-management-app:latest
-        docker push ghcr.io/Maliha987/task-management-app:latest
+        docker tag task-management-app ghcr.io/maliha987/sqe_final_project:latest  # Use lowercase repository name
+        docker push ghcr.io/maliha987/sqe_final_project:latest
