@@ -39,14 +39,14 @@ jobs:
     - name: Build Docker image
       run: docker build -t task-management-app .
 
-    # Log in to Docker Hub or GitHub Container Registry
-    - name: Log in to Docker
+    # Log in to GitHub Container Registry (GHCR)
+    - name: Log in to GitHub Container Registry
       if: github.event_name == 'push'
       uses: docker/login-action@v2
       with:
-        username: ${{ secrets.DOCKER_USERNAME }}  # GitHub secret for Docker username
-        password: ${{ secrets.DOCKER_PASSWORD }}  # GitHub secret for Docker password or access token
-        registry: ghcr.io  # Use GitHub Container Registry
+        username: ${{ secrets.DOCKER_USERNAME_SECRET }}  # Custom secret for username
+        password: ${{ secrets.DOCKER_PASSWORD_SECRET }}   # Custom secret for token/password
+        registry: ghcr.io
 
     # Push Docker image to GitHub Container Registry
     - name: Push Docker image to GHCR
